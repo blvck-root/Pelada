@@ -9,7 +9,14 @@
 import UIKit
 
 class ListPlayersViewController: UIViewController, UITableViewDataSource {
-    var players = [Player]()
+    @IBOutlet weak var tableView: UITableView!
+    var players = [Player]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    
 
     
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,12 +47,24 @@ class ListPlayersViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "addPlayer" {
+                print("+ button tapped")
+            }
+        }
     }
-
-
+    
+    @IBAction func unwindToListPlayersViewController(_ segue: UIStoryboardSegue) {
+    
+    }
+    
+    //    override func didReceiveMemoryWarning() {
+    //        super.didReceiveMemoryWarning()
+    //        // Dispose of any resources that can be recreated.
+    //    }
 }
 
 
