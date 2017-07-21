@@ -9,15 +9,9 @@
 import Foundation
 
 class Player {
-    var initials = ""
     var rating = 0
-    //var playerImage: ImageView
+    var position = ""
+    var foot = ""
+    var initial = ""
     
-    enum foot {
-        case left, right, both
-    }
-    
-    enum position {
-        case goalKeeper, back, midfield, forward
-    }
 }

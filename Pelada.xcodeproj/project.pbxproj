@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441B3B791F212DCE006AC4CD /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B3B781F212DCE006AC4CD /* AddPlayerViewController.swift */; };
 		444818871F20235B00C0F643 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444818861F20235B00C0F643 /* Player.swift */; };
 		44D920F11F1EA07D0015809B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D920F01F1EA07D0015809B /* AppDelegate.swift */; };
-		44D920F31F1EA07D0015809B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D920F21F1EA07D0015809B /* ViewController.swift */; };
+		44D920F31F1EA07D0015809B /* ListPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D920F21F1EA07D0015809B /* ListPlayersViewController.swift */; };
 		44D920F61F1EA07D0015809B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D920F41F1EA07D0015809B /* Main.storyboard */; };
 		44D920F81F1EA07D0015809B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D920F71F1EA07D0015809B /* Assets.xcassets */; };
 		44D920FB1F1EA07D0015809B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D920F91F1EA07D0015809B /* LaunchScreen.storyboard */; };
@@ -17,10 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		441B3B781F212DCE006AC4CD /* AddPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		444818861F20235B00C0F643 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		44D920ED1F1EA07D0015809B /* Pelada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pelada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D920F01F1EA07D0015809B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44D920F21F1EA07D0015809B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44D920F21F1EA07D0015809B /* ListPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlayersViewController.swift; sourceTree = "<group>"; };
 		44D920F51F1EA07D0015809B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44D920F71F1EA07D0015809B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44D920FA1F1EA07D0015809B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,13 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				44D920F01F1EA07D0015809B /* AppDelegate.swift */,
-				44D920F21F1EA07D0015809B /* ViewController.swift */,
+				44D920F21F1EA07D0015809B /* ListPlayersViewController.swift */,
 				44D920F41F1EA07D0015809B /* Main.storyboard */,
 				44D920F71F1EA07D0015809B /* Assets.xcassets */,
 				44D920F91F1EA07D0015809B /* LaunchScreen.storyboard */,
 				44D920FC1F1EA07D0015809B /* Info.plist */,
 				44D921021F1EA6FE0015809B /* PlayerTableViewCell.swift */,
 				444818861F20235B00C0F643 /* Player.swift */,
+				441B3B781F212DCE006AC4CD /* AddPlayerViewController.swift */,
 			);
 			path = Pelada;
 			sourceTree = "<group>";
@@ -144,8 +147,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				444818871F20235B00C0F643 /* Player.swift in Sources */,
+				441B3B791F212DCE006AC4CD /* AddPlayerViewController.swift in Sources */,
 				44D921031F1EA6FE0015809B /* PlayerTableViewCell.swift in Sources */,
-				44D920F31F1EA07D0015809B /* ViewController.swift in Sources */,
+				44D920F31F1EA07D0015809B /* ListPlayersViewController.swift in Sources */,
 				44D920F11F1EA07D0015809B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

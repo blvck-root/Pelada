@@ -9,13 +9,15 @@
 import UIKit
 
 class PlayerTableViewCell: UITableViewCell {
-    @IBOutlet weak var playerPosition: UILabel!
-    @IBOutlet weak var playerFoot: UILabel!
+    @IBOutlet weak var playerProfileView: UIView!
     @IBOutlet weak var initials: UILabel!
-    @IBOutlet weak var playerImage: UIImageView!
     @IBOutlet weak var positionView: UIView!
-    @IBOutlet weak var playerFootView: UIView!
-    @IBOutlet weak var playerRatingView: UIImageView!
+    @IBOutlet weak var positionLabel: UILabel!
+    @IBOutlet weak var preferredFootView: UIView!
+    @IBOutlet weak var preferredFootLabel: UILabel!
+    @IBOutlet weak var ratingView: UIView!
+    @IBOutlet weak var ratingLabel: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
