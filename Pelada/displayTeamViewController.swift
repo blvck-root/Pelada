@@ -26,17 +26,18 @@ class DisplayTeamViewController: UIViewController {
     func createTeam(playersArray:[Player]){
         var sortedPlayers = players.sorted(by: {$0.rating > $1.rating})
         
-        for _ in 0..<(sortedPlayers.count/4) {
+        for i in 0..<(sortedPlayers.count/2) {
             if sortedPlayers.count == 2 {
                 teamA.append(sortedPlayers[0])
                 sortedPlayers.remove(at: 0)
                 teamB.append(sortedPlayers.last!)
                 sortedPlayers.remove(at: 0)
-            } else {
+            } else if i%2 == 0{
                 teamA.append(sortedPlayers[0])
                 sortedPlayers.remove(at: 0)
                 teamA.append(sortedPlayers[sortedPlayers.count-1])
                 sortedPlayers.remove(at: sortedPlayers.count-1)
+            } else if i%2 != 0 {
                 teamB.append(sortedPlayers[0])
                 sortedPlayers.remove(at: 0)
                 teamB.append(sortedPlayers[sortedPlayers.count-1])
