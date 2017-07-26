@@ -27,7 +27,7 @@ class DisplayTeamViewController: UIViewController {
         var sortedPlayers = players.sorted(by: {$0.rating > $1.rating})
         
         for i in 0..<(sortedPlayers.count/2) {
-            if sortedPlayers.count == 2 {
+            if sortedPlayers.count == 2 && teamA.count == teamB.count {
                 teamA.append(sortedPlayers[0])
                 sortedPlayers.remove(at: 0)
                 teamB.append(sortedPlayers.last!)
@@ -46,7 +46,6 @@ class DisplayTeamViewController: UIViewController {
         }
         return
     }
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if tableView.tag == 0 {
@@ -60,12 +59,11 @@ class DisplayTeamViewController: UIViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    
 }
 
 extension DisplayTeamViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt IndexPath: IndexPath) -> UITableViewCell {
+//        tableView.deselectRow(at: IndexPath, animated: true)
         if tableView.tag == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "teamATableViewCell", for: IndexPath as IndexPath) as! TeamATableViewCell
             
@@ -75,6 +73,7 @@ extension DisplayTeamViewController : UITableViewDataSource {
             
             cell.playerInitial.text = player.initial
             cell.preferredPosition.text = player.position
+            cell.playerImage.image = player.picture
             
             return cell
         } else {
@@ -82,12 +81,19 @@ extension DisplayTeamViewController : UITableViewDataSource {
             
             let row = IndexPath.row
             
-            let player = teamA[row]
+            let player = teamB[row]
             
             cell.playerInitialsB.text = player.initial
             cell.preferredPositonB.text = player.position
+            cell.playerImageB.image = player.picture
             
             return cell
         }
+    }
+}
+
+extension DisplayTeamViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
 }

@@ -8,27 +8,61 @@
 
 import UIKit
 
-class AddPlayerViewController: UIViewController {
-    var player: Player?
+class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var player: Player = Player()
+    
     @IBOutlet weak var initialTextField: UITextField!
     @IBOutlet weak var positionSegmentedControl: UISegmentedControl!
     @IBOutlet weak var preferredFootSegmentedControl: UISegmentedControl!
     @IBOutlet weak var skillsRatingSegCtrl: UISegmentedControl!
+    @IBOutlet weak var pickImageButton: UIButton!
     
     
     
     @IBAction func pickImage(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose Image Source", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                print("Camera not found.")
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        
+        player.picture = info[UIImagePickerControllerOriginalImage] as? UIImage
+        pickImageButton.clipsToBounds = true
+        pickImageButton.setImage(image, for: .normal)
+        
+        
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
         
-            }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "save" {
-                    
-                    //initialTextField.text = player.initial
                     
                     var position = ""
                     
@@ -79,15 +113,13 @@ class AddPlayerViewController: UIViewController {
                         break
                     }
 
-                
-                let player = Player()
                 player.initial = initialTextField.text ?? ""
                 player.position = position
                 player.foot = foot
                 player.rating = rating
-                
+//                player.picture = pickImageButton.image(for: .normal)
                 let listPlayersViewController = segue.destination as! ListPlayersViewController
-                // 2
+            
                 listPlayersViewController.players.append(player)
                 
                 print("Save button tapped")

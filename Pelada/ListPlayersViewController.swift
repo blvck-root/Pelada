@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListPlayersViewController: UIViewController, UITableViewDataSource {
+class ListPlayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     var players = [Player]() {
         didSet {
@@ -19,15 +19,16 @@ class ListPlayersViewController: UIViewController, UITableViewDataSource {
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerTableViewCell", for: indexPath as IndexPath) as! PlayerTableViewCell
     
-    let row = indexPath.row
+        let row = indexPath.row
     
-    let player = players[row]
+        let player = players[row]
     
-    cell.initials.text = player.initial
-    cell.positionLabel.text = player.position
-    cell.preferredFootLabel.text = player.foot
-    cell.ratingLabel.text = String(player.rating)
-    
+        cell.initials.text = player.initial
+        cell.positionLabel.text = player.position
+        cell.preferredFootLabel.text = player.foot
+        cell.ratingLabel.text = String(player.rating)
+        cell.playerImage.image = player.picture
+        cell.playerImage.clipsToBounds = true
         return cell
     }
     
@@ -44,6 +45,11 @@ class ListPlayersViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
@@ -55,11 +61,19 @@ class ListPlayersViewController: UIViewController, UITableViewDataSource {
                 destinationViewController.players = players
                 if players.count % 2 != 0 {
                     let alert = UIAlertController(title: "oddPlayersAlert", message: "You have an odd number of player, please add or remove one.", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 } else {
                     destinationViewController.createTeam(playersArray: players)
                 }
+            } else if identifier == "displayPlayerProfile" {
+                let indexPath = tableView.indexPathForSelectedRow!
+                
+                let player = players[indexPath.row]
+                
+                let addPlayerViewController = segue.destination as! AddPlayerViewController
+                
+                addPlayerViewController.player = player
             }
         }
 }

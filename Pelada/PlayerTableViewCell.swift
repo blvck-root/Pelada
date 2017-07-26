@@ -11,6 +11,7 @@ import UIKit
 class PlayerTableViewCell: UITableViewCell {
     @IBOutlet weak var playerProfileView: UIView!
     @IBOutlet weak var initials: UILabel!
+    @IBOutlet weak var playerImage: UIImageView!
     @IBOutlet weak var positionView: UIView!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var preferredFootView: UIView!

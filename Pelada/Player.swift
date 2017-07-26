@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class Player {
     var rating = 0
     var position = ""
     var foot = ""
     var initial = ""
-    
+    var picture: UIImage? = UIImage()
 }
