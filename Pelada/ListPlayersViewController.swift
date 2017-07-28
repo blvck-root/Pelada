@@ -74,10 +74,18 @@ class ListPlayersViewController: UIViewController, UITableViewDataSource, UITabl
                 let addPlayerViewController = segue.destination as! AddPlayerViewController
                 
                 addPlayerViewController.player = player
+                addPlayerViewController.editingPlayer = true                
             }
         }
 }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // 2
+        if editingStyle == .delete {
+            // 3
+            players.remove(at: indexPath.row)
+        }
+    }
     
 
     @IBAction func unwindToListPlayersViewController(_ segue: UIStoryboardSegue) {

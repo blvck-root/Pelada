@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DisplayTeamViewController: UIViewController {
+class DisplayTeamViewController: UIViewController,  UITableViewDelegate {
     @IBOutlet weak var teamATableView: UITableView!
     @IBOutlet weak var teamBTableView: UITableView!
     
@@ -21,6 +21,8 @@ class DisplayTeamViewController: UIViewController {
         super.viewDidLoad()
         teamATableView.tag = 0
         teamBTableView.tag = 1
+//        teamATableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
+//        teamBTableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
     }
     
     func createTeam(playersArray:[Player]){
@@ -59,11 +61,40 @@ class DisplayTeamViewController: UIViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    @IBAction func swap(_ sender: Any) {
+    
+    }
+    
+    private func teamATableView(_ teamATableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Player {
+        var playerA: Player
+        let rowA = indexPath.row
+        
+        playerA = teamA[rowA]
+        
+        
+        teamATableView.reloadData()
+        //tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        return playerA
+    }
+    
+    func teamBTableView( teamATableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Player {
+        var playerB: Player
+        
+        let rowB = indexPath.row
+        
+        playerB = teamB[rowB]
+        
+        
+        teamBTableView.reloadData()
+        //tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        return playerB
+    }
 }
+
 
 extension DisplayTeamViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt IndexPath: IndexPath) -> UITableViewCell {
-//        tableView.deselectRow(at: IndexPath, animated: true)
+
         if tableView.tag == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "teamATableViewCell", for: IndexPath as IndexPath) as! TeamATableViewCell
             
@@ -90,10 +121,13 @@ extension DisplayTeamViewController : UITableViewDataSource {
             return cell
         }
     }
+    
 }
 
-extension DisplayTeamViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-    }
-}
+//extension DisplayTeamViewController : UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        tableView.reloadData()
+//        //tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+//    }
+//}

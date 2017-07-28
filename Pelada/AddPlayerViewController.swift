@@ -10,6 +10,7 @@ import UIKit
 
 class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var player: Player = Player()
+    var editingPlayer: Bool = false
     
     @IBOutlet weak var initialTextField: UITextField!
     @IBOutlet weak var positionSegmentedControl: UISegmentedControl!
@@ -38,7 +39,14 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
             self.present(imagePickerController, animated: true, completion: nil)
         }))
         
+        
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        actionSheet.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { (action: UIAlertAction) in
+            self.player.picture = nil
+            self.pickImageButton.setImage(nil, for: .normal)
+        }))
+
         
         self.present(actionSheet, animated: true, completion: nil)
     }
@@ -60,68 +68,142 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
+    override func viewDidLoad() {
+        initialTextField.text = player.initial
+        pickImageButton.setImage(player.picture, for: .normal)
+        
+        switch player.position {
+        case "GK":
+            positionSegmentedControl.selectedSegmentIndex = 0
+            
+        case "BAC":
+            positionSegmentedControl.selectedSegmentIndex = 1
+            
+        case "MID":
+            positionSegmentedControl.selectedSegmentIndex = 2
+            
+        case "FOR":
+            positionSegmentedControl.selectedSegmentIndex = 3
+            
+        default:
+            break
+        }
+        
+        
+        switch player.foot {
+        case "LEFT":
+                preferredFootSegmentedControl.selectedSegmentIndex = 0
+
+        case "RIGHT":
+            preferredFootSegmentedControl.selectedSegmentIndex = 1
+
+        case "BOTH":
+                preferredFootSegmentedControl.selectedSegmentIndex = 2
+
+        default:
+            break
+        }
+        
+        
+        switch player.rating {
+            
+        case 0:
+                skillsRatingSegCtrl.selectedSegmentIndex = 0
+                
+        case 1:
+                skillsRatingSegCtrl.selectedSegmentIndex = 1
+            
+        case 2:
+            skillsRatingSegCtrl.selectedSegmentIndex = 2
+            
+        case 3:
+            skillsRatingSegCtrl.selectedSegmentIndex = 3
+            
+        case  4:
+            skillsRatingSegCtrl.selectedSegmentIndex = 4
+
+            
+        case 5:
+            skillsRatingSegCtrl.selectedSegmentIndex = 5
+            
+        default:
+            break
+        }
+        //UIsegmentedControl.sendActions(for: .valueChanged)
+    }
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let listPlayersViewController = segue.destination as! ListPlayersViewController
         if let identifier = segue.identifier {
             if identifier == "save" {
                     
-                    var position = ""
+                
                     
                     switch positionSegmentedControl.selectedSegmentIndex {
                     case 0:
-                        position = "GK"
+                        player.position = "GK"
                     case 1:
-                        position = "BAC"
+                        player.position = "BAC"
                     case 2:
-                        position = "MID"
+                        player.position = "MID"
                     case 3:
-                        position = "FOR"
+                        player.position = "FOR"
                     default:
                         break
                     }
-                    
-                    var foot = ""
+                
                     
                     switch preferredFootSegmentedControl.selectedSegmentIndex {
                     case 0:
-                        foot = "LEFT"
+                        player.foot = "LEFT"
+                        
                     case 1:
-                        foot = "RIGHT"
+                        player.foot = "RIGHT"
+                        
                     case 2:
-                        foot = "BOTH"
+                        player.foot = "BOTH"
+                        
                     default:
                         break
                     }
                     
-                    var rating = 0
+                
                     
                     
                     switch skillsRatingSegCtrl.selectedSegmentIndex {
                         
                     case 0:
-                        rating = 0
+                        player.rating = 0
+                        
                     case 1:
-                        rating = 1
+                        player.rating = 1
+                        
                     case 2:
-                        rating = 2
+                        player.rating = 2
+                        
                     case 3:
-                        rating = 3
+                        player.rating = 3
+                        
                     case  4:
-                        rating = 4
+                        player.rating = 4
+                        
                     case 5:
-                        rating = 5
+                        player.rating = 5
+                        
                     default:
                         break
                     }
 
-                player.initial = initialTextField.text ?? ""
-                player.position = position
-                player.foot = foot
-                player.rating = rating
-//                player.picture = pickImageButton.image(for: .normal)
-                let listPlayersViewController = segue.destination as! ListPlayersViewController
-            
-                listPlayersViewController.players.append(player)
                 
+                player.initial = initialTextField.text ?? ""
+                
+                if editingPlayer == false {
+                    listPlayersViewController.players.append(player)
+                    editingPlayer = true
+                } else {
+                    listPlayersViewController.tableView.reloadData()
+                }
                 print("Save button tapped")
             }
         }
