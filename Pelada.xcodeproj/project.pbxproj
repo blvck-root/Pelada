@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		441B3B791F212DCE006AC4CD /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B3B781F212DCE006AC4CD /* AddPlayerViewController.swift */; };
 		444818871F20235B00C0F643 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444818861F20235B00C0F643 /* Player.swift */; };
+		446A33C31F2EA6EB008C87CB /* ScoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A33C21F2EA6EB008C87CB /* ScoreBoardViewController.swift */; };
 		44AFB0DB1F22A61D0018B78B /* DisplayTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AFB0DA1F22A61D0018B78B /* DisplayTeamViewController.swift */; };
 		44AFB0DD1F22AF6E0018B78B /* TeamATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AFB0DC1F22AF6E0018B78B /* TeamATableViewCell.swift */; };
 		44AFB0DF1F22AF870018B78B /* TeamBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AFB0DE1F22AF870018B78B /* TeamBTableViewCell.swift */; };
@@ -18,11 +19,13 @@
 		44D920F81F1EA07D0015809B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D920F71F1EA07D0015809B /* Assets.xcassets */; };
 		44D920FB1F1EA07D0015809B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D920F91F1EA07D0015809B /* LaunchScreen.storyboard */; };
 		44D921031F1EA6FE0015809B /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D921021F1EA6FE0015809B /* PlayerTableViewCell.swift */; };
+		C5FC450C49D06463C21F5498 /* Pods_Pelada.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76FB3817115D4B984109318D /* Pods_Pelada.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		441B3B781F212DCE006AC4CD /* AddPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		444818861F20235B00C0F643 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		446A33C21F2EA6EB008C87CB /* ScoreBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardViewController.swift; sourceTree = "<group>"; };
 		44AFB0DA1F22A61D0018B78B /* DisplayTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayTeamViewController.swift; sourceTree = "<group>"; };
 		44AFB0DC1F22AF6E0018B78B /* TeamATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamATableViewCell.swift; sourceTree = "<group>"; };
 		44AFB0DE1F22AF870018B78B /* TeamBTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamBTableViewCell.swift; sourceTree = "<group>"; };
@@ -34,6 +37,9 @@
 		44D920FA1F1EA07D0015809B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D920FC1F1EA07D0015809B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44D921021F1EA6FE0015809B /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		5B609C6ECED72D83BA3C1159 /* Pods-Pelada.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pelada.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pelada/Pods-Pelada.release.xcconfig"; sourceTree = "<group>"; };
+		76FB3817115D4B984109318D /* Pods_Pelada.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pelada.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0019593263A0E5B4A0A456F /* Pods-Pelada.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pelada.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pelada/Pods-Pelada.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FC450C49D06463C21F5498 /* Pods_Pelada.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02974B32C43123DD6E480811 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0019593263A0E5B4A0A456F /* Pods-Pelada.debug.xcconfig */,
+				5B609C6ECED72D83BA3C1159 /* Pods-Pelada.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		44D920E41F1EA07D0015809B = {
 			isa = PBXGroup;
 			children = (
 				44D920EF1F1EA07D0015809B /* Pelada */,
 				44D920EE1F1EA07D0015809B /* Products */,
+				02974B32C43123DD6E480811 /* Pods */,
+				D561A19179BFE92DC8EBA9CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,8 +96,17 @@
 				44AFB0DA1F22A61D0018B78B /* DisplayTeamViewController.swift */,
 				44AFB0DC1F22AF6E0018B78B /* TeamATableViewCell.swift */,
 				44AFB0DE1F22AF870018B78B /* TeamBTableViewCell.swift */,
+				446A33C21F2EA6EB008C87CB /* ScoreBoardViewController.swift */,
 			);
 			path = Pelada;
+			sourceTree = "<group>";
+		};
+		D561A19179BFE92DC8EBA9CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76FB3817115D4B984109318D /* Pods_Pelada.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,9 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44D920FF1F1EA07D0015809B /* Build configuration list for PBXNativeTarget "Pelada" */;
 			buildPhases = (
+				BACBE2AD7F5996F5F400CDAF /* [CP] Check Pods Manifest.lock */,
 				44D920E91F1EA07D0015809B /* Sources */,
 				44D920EA1F1EA07D0015809B /* Frameworks */,
 				44D920EB1F1EA07D0015809B /* Resources */,
+				DE89304F4C7DBCE8318D585F /* [CP] Embed Pods Frameworks */,
+				0724D004CA675FDE1794B151 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,6 +184,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0724D004CA675FDE1794B151 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pelada/Pods-Pelada-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BACBE2AD7F5996F5F400CDAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pelada-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE89304F4C7DBCE8318D585F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pelada/Pods-Pelada-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZTimerLabel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pelada/Pods-Pelada-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		44D920E91F1EA07D0015809B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -162,6 +246,7 @@
 				444818871F20235B00C0F643 /* Player.swift in Sources */,
 				441B3B791F212DCE006AC4CD /* AddPlayerViewController.swift in Sources */,
 				44AFB0DB1F22A61D0018B78B /* DisplayTeamViewController.swift in Sources */,
+				446A33C31F2EA6EB008C87CB /* ScoreBoardViewController.swift in Sources */,
 				44D921031F1EA6FE0015809B /* PlayerTableViewCell.swift in Sources */,
 				44D920F31F1EA07D0015809B /* ListPlayersViewController.swift in Sources */,
 				44D920F11F1EA07D0015809B /* AppDelegate.swift in Sources */,
@@ -287,6 +372,7 @@
 		};
 		44D921001F1EA07D0015809B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0019593263A0E5B4A0A456F /* Pods-Pelada.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KL6F7ZTYS8;
@@ -300,6 +386,7 @@
 		};
 		44D921011F1EA07D0015809B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B609C6ECED72D83BA3C1159 /* Pods-Pelada.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KL6F7ZTYS8;

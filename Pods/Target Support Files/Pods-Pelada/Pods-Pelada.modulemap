@@ -1,0 +1,6 @@
+framework module Pods_Pelada {
+  umbrella header "Pods-Pelada-umbrella.h"
+
+  export *
+  module * { export * }
+}
