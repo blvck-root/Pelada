@@ -30,6 +30,8 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Pelada would like to access your photos to complete Player Profile</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Pelada would like to access your camera to complete Player Profile</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

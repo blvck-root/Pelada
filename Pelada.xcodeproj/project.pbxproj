@@ -63,6 +63,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		446A33E21F33BA88008C87CB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				441B3B781F212DCE006AC4CD /* AddPlayerViewController.swift */,
+				446A33C21F2EA6EB008C87CB /* ScoreBoardViewController.swift */,
+				44D920F21F1EA07D0015809B /* ListPlayersViewController.swift */,
+				44AFB0DA1F22A61D0018B78B /* DisplayTeamViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		44D920E41F1EA07D0015809B = {
 			isa = PBXGroup;
 			children = (
@@ -85,18 +96,15 @@
 			isa = PBXGroup;
 			children = (
 				44D920F01F1EA07D0015809B /* AppDelegate.swift */,
-				44D920F21F1EA07D0015809B /* ListPlayersViewController.swift */,
 				44D920F41F1EA07D0015809B /* Main.storyboard */,
 				44D920F71F1EA07D0015809B /* Assets.xcassets */,
 				44D920F91F1EA07D0015809B /* LaunchScreen.storyboard */,
 				44D920FC1F1EA07D0015809B /* Info.plist */,
-				44D921021F1EA6FE0015809B /* PlayerTableViewCell.swift */,
 				444818861F20235B00C0F643 /* Player.swift */,
-				441B3B781F212DCE006AC4CD /* AddPlayerViewController.swift */,
-				44AFB0DA1F22A61D0018B78B /* DisplayTeamViewController.swift */,
+				446A33E21F33BA88008C87CB /* ViewControllers */,
+				44D921021F1EA6FE0015809B /* PlayerTableViewCell.swift */,
 				44AFB0DC1F22AF6E0018B78B /* TeamATableViewCell.swift */,
 				44AFB0DE1F22AF870018B78B /* TeamBTableViewCell.swift */,
-				446A33C21F2EA6EB008C87CB /* ScoreBoardViewController.swift */,
 			);
 			path = Pelada;
 			sourceTree = "<group>";

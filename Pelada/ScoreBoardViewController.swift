@@ -10,17 +10,21 @@ import UIKit
 import MZTimerLabel
 
 class ScoreBoardViewController: UIViewController {
-    var score1: Int = 0
-    var score2: Int = 0
+    var score1 = 0
+    var score2 = 0
+    let coinOptions = [#imageLiteral(resourceName: "heads"), #imageLiteral(resourceName: "tails")]
+    var interval: TimeInterval = 0.1
+    var firstHalf = true
+    var secondHalf = false
+    var pickerData = [String]()
     
     @IBOutlet weak var scoreA: UIButton!
     @IBOutlet weak var scoreB: UIButton!
     @IBOutlet weak var flipCoinButton: UIButton!
     @IBOutlet weak var periodButton: UIButton!
     @IBOutlet weak var timerLabel: MZTimerLabel!
-    @IBOutlet weak var timerLabel2: MZTimerLabel!
+    //@IBOutlet weak var timePicker: UIPickerView!
 
-    let coinOptions = [#imageLiteral(resourceName: "heads"), #imageLiteral(resourceName: "tails")]
     
     @IBAction func coinFLip(_ sender: UIButton) {
         //simple coin flip
@@ -42,7 +46,7 @@ class ScoreBoardViewController: UIViewController {
         sender.setTitle("\(score2)", for: .normal)
     }
     
-    @IBAction func period(_ sender: UIButton) {
+    @IBAction func timerControl(_ sender: UIButton) {
         if sender.title(for: .normal) == "START" {
             timerLabel.start()
             sender.setTitle("PAUSE", for: .normal)
@@ -78,21 +82,77 @@ class ScoreBoardViewController: UIViewController {
         scoreA.setTitle("\(score1)", for: .normal)
         scoreB.setTitle("\(score2)", for: .normal)
     }
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        //self.timePicker.delegate = self
+        //self.timePicker.dataSource = self
+        
+        //MARK: Delegate
+        //pickerData = ["45", "40", "35", "30", "25", "20", "15", "10", "5"]
+        
+       
         timerLabel.delegate = self
         timerLabel.timerType = MZTimerLabelTypeTimer
         timerLabel.timeFormat = "mm:ss"
-        timerLabel.setCountDownTime(5)
+        timerLabel.resetTimerAfterFinish = true
+        timerLabel.setCountDownTime(interval*60)
+        
+        
         
     }
 }
 
 extension ScoreBoardViewController: MZTimerLabelDelegate {
     func timerLabel(_ timerLabel: MZTimerLabel!, finshedCountDownTimerWithTime countTime: TimeInterval) {
-        periodButton.setTitle("START", for: .normal)
+        //timerLabel.pause()
+        if firstHalf {
+            timerLabel.setCountDownTime(interval*60)
+            let alert = UIAlertController(title: "HALF TIME", message: "\(score1) : \(score2)", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Game On!", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            firstHalf = false
+            secondHalf = true
+            
+            periodButton.setTitle("START", for: .normal)
+        } else if secondHalf {
+            timerLabel.setCountDownTime(0)
+            let alert = UIAlertController(title: "FINAL SCORE", message: "\(score1) : \(score2)", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Nice Play!", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            periodButton.setTitle("FINAL TIME", for: .normal)
+            secondHalf = false
+            
+        }
         
-        let alert = UIAlertController(title: "HALF TIME", message: "\(score1) : \(score2)", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }
+
+//extension ScoreBoardViewController: UIPickerViewDataSource {
+//    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return pickerData.count
+//    }
+//    
+//}
+//
+//extension ScoreBoardViewController: UIPickerViewDelegate {
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return pickerData[row]
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        interval = TimeInterval(pickerData[row])!
+//        timerLabel.setCountDownTime(interval*60)
+//        //timerLabel.reloadInputViews()
+//        pickerView.isHidden = true
+//    }
+//}

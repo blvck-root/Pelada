@@ -168,6 +168,7 @@ class DisplayTeamViewController: UIViewController {
             teamA[indexA!] = teamB[indexB!]
             teamB[indexB!] = teamSwapper
             
+            
             teamATableView.reloadData()
             teamBTableView.reloadData()
             //teamA[indexA!] = teamB[indexB!]; teamB[indexB!] = teamA[indexA!]
