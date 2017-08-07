@@ -19,6 +19,7 @@
 		44D920F81F1EA07D0015809B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D920F71F1EA07D0015809B /* Assets.xcassets */; };
 		44D920FB1F1EA07D0015809B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D920F91F1EA07D0015809B /* LaunchScreen.storyboard */; };
 		44D921031F1EA6FE0015809B /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D921021F1EA6FE0015809B /* PlayerTableViewCell.swift */; };
+		44ED13731F38EDCF00A35DB9 /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED13721F38EDCF00A35DB9 /* SetTimerViewController.swift */; };
 		C5FC450C49D06463C21F5498 /* Pods_Pelada.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76FB3817115D4B984109318D /* Pods_Pelada.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		44D920FA1F1EA07D0015809B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D920FC1F1EA07D0015809B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44D921021F1EA6FE0015809B /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		44ED13721F38EDCF00A35DB9 /* SetTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
 		5B609C6ECED72D83BA3C1159 /* Pods-Pelada.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pelada.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pelada/Pods-Pelada.release.xcconfig"; sourceTree = "<group>"; };
 		76FB3817115D4B984109318D /* Pods_Pelada.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pelada.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0019593263A0E5B4A0A456F /* Pods-Pelada.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pelada.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pelada/Pods-Pelada.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				446A33C21F2EA6EB008C87CB /* ScoreBoardViewController.swift */,
 				44D920F21F1EA07D0015809B /* ListPlayersViewController.swift */,
 				44AFB0DA1F22A61D0018B78B /* DisplayTeamViewController.swift */,
+				44ED13721F38EDCF00A35DB9 /* SetTimerViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				44AFB0DB1F22A61D0018B78B /* DisplayTeamViewController.swift in Sources */,
 				446A33C31F2EA6EB008C87CB /* ScoreBoardViewController.swift in Sources */,
 				44D921031F1EA6FE0015809B /* PlayerTableViewCell.swift in Sources */,
+				44ED13731F38EDCF00A35DB9 /* SetTimerViewController.swift in Sources */,
 				44D920F31F1EA07D0015809B /* ListPlayersViewController.swift in Sources */,
 				44D920F11F1EA07D0015809B /* AppDelegate.swift in Sources */,
 				44AFB0DD1F22AF6E0018B78B /* TeamATableViewCell.swift in Sources */,

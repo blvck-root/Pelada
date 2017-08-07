@@ -18,7 +18,7 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var skillsRatingSegCtrl: UISegmentedControl!
     @IBOutlet weak var pickImageButton: UIButton!
     
-    
+    //pickImageButton = pickImageButton.setImage(#imageLiteral(resourceName: "profile-default"), for: .normal)
     
     @IBAction func pickImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
@@ -58,10 +58,13 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
         
         player.picture = info[UIImagePickerControllerOriginalImage] as? UIImage
         pickImageButton.clipsToBounds = true
+        pickImageButton.layer.masksToBounds = true
+        pickImageButton.layer.cornerRadius = 60
         pickImageButton.setImage(image, for: .normal)
         
         
     }
+    
     
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
@@ -69,8 +72,13 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     override func viewDidLoad() {
+        
         initialTextField.text = player.initial
         pickImageButton.setImage(player.picture, for: .normal)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        
+        view.addGestureRecognizer(tap)
         
         switch player.position {
         case "GK":
@@ -129,7 +137,13 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
         default:
             break
         }
+        
         //UIsegmentedControl.sendActions(for: .valueChanged)
+        
+    }
+    
+    func dismissKeyBoard() {
+        view.endEditing(true)
     }
 
     
@@ -209,4 +223,11 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
 }
+
+extension AddPlayerViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+}
+
 

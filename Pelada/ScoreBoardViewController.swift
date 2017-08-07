@@ -13,10 +13,10 @@ class ScoreBoardViewController: UIViewController {
     var score1 = 0
     var score2 = 0
     let coinOptions = [#imageLiteral(resourceName: "heads"), #imageLiteral(resourceName: "tails")]
-    var interval: TimeInterval = 0.1
+    var interval: TimeInterval = 0
     var firstHalf = true
     var secondHalf = false
-    var pickerData = [String]()
+    
     
     @IBOutlet weak var scoreA: UIButton!
     @IBOutlet weak var scoreB: UIButton!
@@ -32,6 +32,8 @@ class ScoreBoardViewController: UIViewController {
         let ranIndex = Int(arc4random_uniform(UInt32(2)))
         
         flipCoinButton.clipsToBounds = true
+//        flipCoinButton.layer.masksToBounds = true
+//        flipCoinButton.layer.cornerRadius = 85
         flipCoinButton.setImage(coinOptions[ranIndex], for: .normal)
         
     }
@@ -85,20 +87,12 @@ class ScoreBoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.timePicker.delegate = self
-        //self.timePicker.dataSource = self
-        
-        //MARK: Delegate
-        //pickerData = ["45", "40", "35", "30", "25", "20", "15", "10", "5"]
-        
        
         timerLabel.delegate = self
         timerLabel.timerType = MZTimerLabelTypeTimer
         timerLabel.timeFormat = "mm:ss"
         timerLabel.resetTimerAfterFinish = true
         timerLabel.setCountDownTime(interval*60)
-        
-        
         
     }
 }
@@ -133,26 +127,4 @@ extension ScoreBoardViewController: MZTimerLabelDelegate {
     }
 }
 
-//extension ScoreBoardViewController: UIPickerViewDataSource {
-//    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//    
-//    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return pickerData.count
-//    }
-//    
-//}
-//
-//extension ScoreBoardViewController: UIPickerViewDelegate {
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return pickerData[row]
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        interval = TimeInterval(pickerData[row])!
-//        timerLabel.setCountDownTime(interval*60)
-//        //timerLabel.reloadInputViews()
-//        pickerView.isHidden = true
-//    }
-//}
+
