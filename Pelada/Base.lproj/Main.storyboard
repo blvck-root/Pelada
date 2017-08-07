@@ -58,11 +58,11 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XvX-BY-XhA" userLabel="Position Stack View">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="XvX-BY-XhA" userLabel="Position Stack View">
                                                                     <rect key="frame" x="0.0" y="40" width="215" height="40"/>
                                                                     <subviews>
                                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foot" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTY-H7-Svo">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="107.5" height="40"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="101.5" height="40"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="102.5" id="jLd-AE-ehh"/>
                                                                             </constraints>
@@ -71,7 +71,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACn-xj-ZmZ">
-                                                                            <rect key="frame" x="107.5" y="0.0" width="107.5" height="40"/>
+                                                                            <rect key="frame" x="113.5" y="0.0" width="101.5" height="40"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
