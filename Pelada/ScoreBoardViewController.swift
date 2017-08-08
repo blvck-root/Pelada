@@ -12,7 +12,7 @@ import MZTimerLabel
 class ScoreBoardViewController: UIViewController {
     var score1 = 0
     var score2 = 0
-    let coinOptions = [#imageLiteral(resourceName: "heads"), #imageLiteral(resourceName: "tails")]
+    let coinOptions = [#imageLiteral(resourceName: "heads-1"), #imageLiteral(resourceName: "tails")]
     var interval: TimeInterval = 0
     var firstHalf = true
     var secondHalf = false
@@ -23,6 +23,7 @@ class ScoreBoardViewController: UIViewController {
     @IBOutlet weak var flipCoinButton: UIButton!
     @IBOutlet weak var periodButton: UIButton!
     @IBOutlet weak var timerLabel: MZTimerLabel!
+    @IBOutlet weak var backButton: UIButton!
     //@IBOutlet weak var timePicker: UIPickerView!
 
     
@@ -92,7 +93,8 @@ class ScoreBoardViewController: UIViewController {
         timerLabel.timerType = MZTimerLabelTypeTimer
         timerLabel.timeFormat = "mm:ss"
         timerLabel.resetTimerAfterFinish = true
-        timerLabel.setCountDownTime(interval*60)
+        timerLabel.setCountDownTime(interval)
+        backButton.setImage(#imageLiteral(resourceName: "icons8-Back To Filled-50"), for: .normal)
         
     }
 }
@@ -101,7 +103,7 @@ extension ScoreBoardViewController: MZTimerLabelDelegate {
     func timerLabel(_ timerLabel: MZTimerLabel!, finshedCountDownTimerWithTime countTime: TimeInterval) {
         //timerLabel.pause()
         if firstHalf {
-            timerLabel.setCountDownTime(interval*60)
+            timerLabel.setCountDownTime(interval)
             let alert = UIAlertController(title: "HALF TIME", message: "\(score1) : \(score2)", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "Game On!", style: UIAlertActionStyle.default, handler: nil))

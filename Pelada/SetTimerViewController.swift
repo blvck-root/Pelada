@@ -11,6 +11,8 @@ import UIKit
 
 class SetTimerViewController: UIViewController {
     @IBOutlet weak var timePicker: UIPickerView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
     var pickerData = [String]()
     
@@ -20,6 +22,8 @@ class SetTimerViewController: UIViewController {
         super.viewDidLoad()
         self.timePicker.delegate = self
         self.timePicker.dataSource = self
+        playButton.setImage(#imageLiteral(resourceName: "icons8-Next page Filled-50"), for: .normal)
+        //backButton.
         
         //MARK: Delegate
         pickerData = ["45", "40", "35", "30", "25", "20", "15", "10", "5"]

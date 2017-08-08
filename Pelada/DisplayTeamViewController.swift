@@ -11,6 +11,9 @@ import UIKit
 class DisplayTeamViewController: UIViewController {
     @IBOutlet weak var teamATableView: UITableView!
     @IBOutlet weak var teamBTableView: UITableView!
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var swapButton: UIButton!
     
     var players = [Player]()
     
@@ -29,6 +32,13 @@ class DisplayTeamViewController: UIViewController {
         super.viewDidLoad()
         teamATableView.tag = 0
         teamBTableView.tag = 1
+        
+        homeButton.clipsToBounds = true
+        nextButton.clipsToBounds = true
+        swapButton.clipsToBounds = true
+        homeButton.setImage(#imageLiteral(resourceName: "icons8-Home-48"), for: .normal)
+        nextButton.setImage(#imageLiteral(resourceName: "icons8-Circled Play Filled-50"), for: .normal)
+        swapButton.setImage(#imageLiteral(resourceName: "icons8-Sorting Arrows Horizontal Filled-50"), for: .normal)
     }
     
     func createTeam(playersArray:[Player]){
@@ -65,19 +75,19 @@ class DisplayTeamViewController: UIViewController {
             for i in 0..<(playersAr.count/2) {
                         if playersAr.count == 2 && teamA.count == teamB.count {
                             if summedPlayerRatings(playersArray: teamA) >= summedPlayerRatings(playersArray: teamB){
-                                teamB.append(playersArr[0])
+                                teamB.append(playersAr[0])
                                 playersAr.remove(at: 0)
-                                teamA.append(playersArr.last!)
+                                teamA.append(playersAr.last!)
                                 playersAr.remove(at: 0)
                             } else {
-                                teamA.append(playersArr[0])
+                                teamA.append(playersAr[0])
                                 playersAr.remove(at: 0)
-                                teamB.append(playersArr.last!)
-                                playersAr.remove(at: 0)
+                                teamB.append(playersAr.last!)
+                                playersAr.remove(at: playersAr.count-1)
                             }
             
             
-                        } else if i%2 == 0{
+                        } else if i%2 == 0 {
                             teamA.append(playersAr[0])
                             playersAr.remove(at: 0)
                             teamA.append(playersAr[playersAr.count-1])
@@ -85,7 +95,7 @@ class DisplayTeamViewController: UIViewController {
                         } else if i%2 != 0 {
                             teamB.append(playersAr[0])
                             playersAr.remove(at: 0)
-                            teamB.append(playersArr[playersAr.count-1])
+                            teamB.append(playersAr[playersAr.count-1])
                             playersAr.remove(at: playersAr.count-1)
                         }
                     }

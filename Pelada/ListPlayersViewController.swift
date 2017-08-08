@@ -9,6 +9,8 @@
 import UIKit
 
 class ListPlayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var createTeams: UIBarButtonItem!
+    @IBOutlet weak var addPlayer: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     var players = [Player]() {
         didSet {
@@ -44,6 +46,7 @@ class ListPlayersViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        addPlayer.setBackgroundImage(#imageLiteral(resourceName: "icons8-Add Filled-50"), for: .normal, barMetrics: .compact)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

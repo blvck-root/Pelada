@@ -18,7 +18,6 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var skillsRatingSegCtrl: UISegmentedControl!
     @IBOutlet weak var pickImageButton: UIButton!
     
-    //pickImageButton = pickImageButton.setImage(#imageLiteral(resourceName: "profile-default"), for: .normal)
     
     @IBAction func pickImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
@@ -30,7 +29,11 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
-                print("Camera not found.")
+                let alert = UIAlertController(title: "Camera Not Found!", message: "Please check your phone settings & enable camera.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Cool", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
             }
         }))
         
@@ -43,8 +46,8 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         actionSheet.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { (action: UIAlertAction) in
-            self.player.picture = nil
-            self.pickImageButton.setImage(nil, for: .normal)
+            self.player.picture = #imageLiteral(resourceName: "icons8-User Filled-50 (1)")
+            self.pickImageButton.setImage(self.player.picture, for: .normal)
         }))
 
         
@@ -56,12 +59,11 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         
-        player.picture = info[UIImagePickerControllerOriginalImage] as? UIImage
+        player.picture = info[UIImagePickerControllerOriginalImage] as! UIImage
+        pickImageButton.setImage(image, for: .normal)
         pickImageButton.clipsToBounds = true
         pickImageButton.layer.masksToBounds = true
-        pickImageButton.layer.cornerRadius = 60
-        pickImageButton.setImage(image, for: .normal)
-        
+        pickImageButton.layer.cornerRadius = pickImageButton.bounds.width/2.0
         
     }
     
@@ -72,9 +74,17 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     override func viewDidLoad() {
-        
         initialTextField.text = player.initial
+        
+//        if player.picture == nil {
+//            player.picture = #imageLiteral(resourceName: "icons8-User Filled-50 (1)")
+//            //pickImageButton.setImage(, for: .normal)
+//        }
+        
         pickImageButton.setImage(player.picture, for: .normal)
+        pickImageButton.clipsToBounds = true
+        pickImageButton.layer.masksToBounds = true
+        pickImageButton.layer.cornerRadius = pickImageButton.bounds.width/2.0
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
         

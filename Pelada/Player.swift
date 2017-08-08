@@ -14,5 +14,5 @@ class Player {
     var position = ""
     var foot = ""
     var initial = ""
-    var picture: UIImage? = UIImage()
+    var picture: UIImage = #imageLiteral(resourceName: "icons8-User Filled-50 (1)")
 }
