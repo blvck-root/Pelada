@@ -182,7 +182,6 @@ class DisplayTeamViewController: UIViewController {
             teamATableView.reloadData()
             teamBTableView.reloadData()
             //teamA[indexA!] = teamB[indexB!]; teamB[indexB!] = teamA[indexA!]
-            print("Swap button tapped!")
             
         }
     }

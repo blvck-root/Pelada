@@ -22,7 +22,7 @@ class SetTimerViewController: UIViewController {
         super.viewDidLoad()
         self.timePicker.delegate = self
         self.timePicker.dataSource = self
-        playButton.setImage(#imageLiteral(resourceName: "icons8-Next page Filled-50"), for: .normal)
+        playButton.setImage(#imageLiteral(resourceName: "icons8-Slide Up Filled-50"), for: .normal)
         //backButton.
         
         //MARK: Delegate

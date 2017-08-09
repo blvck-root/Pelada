@@ -56,10 +56,7 @@ class ListPlayersViewController: UIViewController, UITableViewDataSource, UITabl
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
-            if identifier == "addPlayer" {
-                print("+ button tapped")
-            } else if identifier == "createTeam" {
-                print("create-team button tapped")
+            if identifier == "createTeam" {
                 let destinationViewController = segue.destination as! DisplayTeamViewController
                 destinationViewController.players = players
                 if players.count % 2 != 0 {

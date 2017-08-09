@@ -6,6 +6,7 @@
 //  Copyright © 2017 Make School. All rights reserved.
 //
 
+//import
 import UIKit
 import MZTimerLabel
 
@@ -16,6 +17,7 @@ class ScoreBoardViewController: UIViewController {
     var interval: TimeInterval = 0
     var firstHalf = true
     var secondHalf = false
+    var transition = CATransform3DMakeRotation(CGFloat(4.0*Double.pi), 0.0, 1.0, 0.0)
     
     
     @IBOutlet weak var scoreA: UIButton!
@@ -36,6 +38,9 @@ class ScoreBoardViewController: UIViewController {
 //        flipCoinButton.layer.masksToBounds = true
 //        flipCoinButton.layer.cornerRadius = 85
         flipCoinButton.setImage(coinOptions[ranIndex], for: .normal)
+
+        UIView.transition(with: flipCoinButton, duration: 0.3, options: UIViewAnimationOptions.transitionFlipFromRight, animations: nil, completion: nil)
+
         
     }
     
@@ -68,7 +73,7 @@ class ScoreBoardViewController: UIViewController {
             score1 = score1 - 1
         }
         scoreA.setTitle("\(score1)", for: .normal)
-        print("A swiped")
+        
     }
     
     @IBAction func swipeButtonB(_ sender: UISwipeGestureRecognizer) {
@@ -76,7 +81,7 @@ class ScoreBoardViewController: UIViewController {
           score2 = score2 - 1
         }
         scoreB.setTitle("\(score2)", for: .normal)
-        print("B swiped")
+        
     }
     
     @IBAction func resetScore(_ sender: UIButton) {
@@ -86,6 +91,13 @@ class ScoreBoardViewController: UIViewController {
         scoreB.setTitle("\(score2)", for: .normal)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+        
+        
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -93,8 +105,9 @@ class ScoreBoardViewController: UIViewController {
         timerLabel.timerType = MZTimerLabelTypeTimer
         timerLabel.timeFormat = "mm:ss"
         timerLabel.resetTimerAfterFinish = true
-        timerLabel.setCountDownTime(interval)
-        backButton.setImage(#imageLiteral(resourceName: "icons8-Back To Filled-50"), for: .normal)
+        timerLabel.setCountDownTime(interval*60)
+        backButton.setImage(#imageLiteral(resourceName: "icons8-Down Button Filled-50"), for: .normal)
+    
         
     }
 }
@@ -103,7 +116,7 @@ extension ScoreBoardViewController: MZTimerLabelDelegate {
     func timerLabel(_ timerLabel: MZTimerLabel!, finshedCountDownTimerWithTime countTime: TimeInterval) {
         //timerLabel.pause()
         if firstHalf {
-            timerLabel.setCountDownTime(interval)
+            timerLabel.setCountDownTime(interval*60)
             let alert = UIAlertController(title: "HALF TIME", message: "\(score1) : \(score2)", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "Game On!", style: UIAlertActionStyle.default, handler: nil))
@@ -129,4 +142,13 @@ extension ScoreBoardViewController: MZTimerLabelDelegate {
     }
 }
 
-
+/*
+ var transition = CATransition.animation()
+ transition.startProgress = 0
+ transition.endProgress = 1.0
+ transition.type = "flip"
+ transition.subtype = "fromRight"
+ transition.duration = 0.3
+ transition.repeatCount = 2
+ yourView.layer.add(transition, forKey: "transition")
+ */

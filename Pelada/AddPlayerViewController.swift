@@ -228,7 +228,6 @@ class AddPlayerViewController: UIViewController, UIImagePickerControllerDelegate
                 } else {
                     listPlayersViewController.tableView.reloadData()
                 }
-                print("Save button tapped")
             }
         }
     }
