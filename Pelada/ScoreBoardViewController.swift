@@ -110,6 +110,10 @@ class ScoreBoardViewController: UIViewController {
     
         
     }
+    
+    @IBAction func unwindToScoreBoardViewController(_ segue: UIStoryboardSegue) {
+        
+    }
 }
 
 extension ScoreBoardViewController: MZTimerLabelDelegate {
