@@ -390,7 +390,7 @@
 				DEVELOPMENT_TEAM = KL6F7ZTYS8;
 				INFOPLIST_FILE = Pelada/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Pelada;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mthabisindlovu.Pelada;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -404,7 +404,7 @@
 				DEVELOPMENT_TEAM = KL6F7ZTYS8;
 				INFOPLIST_FILE = Pelada/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Pelada;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mthabisindlovu.Pelada;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

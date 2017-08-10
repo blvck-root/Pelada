@@ -60,7 +60,7 @@ class ListPlayersViewController: UIViewController, UITableViewDataSource, UITabl
                 let destinationViewController = segue.destination as! DisplayTeamViewController
                 destinationViewController.players = players
                 if players.count % 2 != 0 {
-                    let alert = UIAlertController(title: "oddPlayersAlert", message: "You have an odd number of player, please add or remove one.", preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "oddPlayersAlert", message: "You have an odd number of players, please add or remove one.", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 } else {
